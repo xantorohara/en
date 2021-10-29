@@ -31,15 +31,17 @@
             column-gap: 0;
             padding: 5px;
             box-sizing: border-box;
-            background-color: #E7E7E7;
+            background-color: whitesmoke;
         }
 
         #filterInput {
             width: 100%;
             padding: 5px;
-            border: solid #CCC 1px;
+            border: solid lightgray 1px;
             border-radius: 5px;
             box-sizing: border-box;
+            background-color: white;
+            box-shadow: 1px 1px 0 0 gainsboro;
         }
 
         pre {
@@ -49,13 +51,10 @@
             margin: 10px 5px;
             border-collapse: separate;
             padding: 0 5px 5px 5px;
-        }
-
-        #filterInput, pre {
-            border: solid #E7E7E7 1px;
+            border: solid lightgray 1px;
             border-radius: 5px;
             background-color: white;
-            box-shadow: 1px 1px 5px 0 #C3C3C3;
+            box-shadow: 1px 1px 0 0 gainsboro;
         }
 
         pre:first-line {
@@ -69,7 +68,7 @@
         }
 
         pre span.matched {
-            background-color: #FFE700;
+            background-color: yellow;
         }
     </style>
 
@@ -111,7 +110,7 @@
     </script>
 </head>
 <body onkeydown="escape(event)">
-<div style="padding: 5px;">
+<div style="padding: 0 5px;">
     <input id="filterInput" oninput="filter(this.value)" placeholder="Enter filter phrase...">
 </div>
 
@@ -121,6 +120,8 @@ Meeting: start
 - Are we good to go?
 - Ok, let's get started.
 - Ok, let's kick off.
+- Shall we start?
+- We have a lot to discuss today so let's start.
 </pre>
 <pre>
 Meeting: share screen
@@ -163,17 +164,9 @@ Meeting: interrupt
 - Sorry, go ahead.
 - Where was I?
 - Let me start over again?
-- Sorry, I'm late
-
-</pre>
-
-<pre>
-Meeting: other
-- This is [Name].
-- It is [Name] here.
+- Sorry, I'm late.
 - Sorry, I have to jump to another call.
 </pre>
-
 <pre>
 Polite: would, could, may
 - Could you call me later please?
@@ -185,11 +178,11 @@ Polite: would, could, may
 </pre>
 <pre>
 Polite: bumper phrases
-- I’m afraid ...
+- I'm afraid ...
 - Unfortunately, ...
 - I am not sure ...
 - With all respect, ...
-- I’m sorry but ...
+- I'm sorry but ...
 - With all respect, I have to decline your offer.
 
 - a little, - a bit, - a little bit, - a few, - slightly, - one or two
@@ -219,6 +212,43 @@ Polite: passive phrases
 - It was expected that ...
 - The most important things are not discussed without our manager.
 - We were not invited to the meeting the day before yesterday.
+</pre>
+<pre>
+Small talk
+- What is the weather like in your location? Is it sunny outside?
+- How was your weekend?
+- Did you have a good weekend?
+</pre>
+<pre>
+Thanks, manager
+- I'm really lucky to have you as my manager. You are a true leader and the heart of our team. Thank you for always supporting everyone and helping us believe in ourselves.
+- I would like to thank you for all the support you've given me. If it wasn't for you, I never would have achieved the goals that I set for myself.
+You've been really helpful along the way.
+- Thank you for your guidance. My career growth wouldn't be possible without your valuable advice. I'm really grateful for your help and support.
+</pre>
+<pre>
+Thanks, team
+- Thank you for your hard work.
+- Thank you for your bright ideas and productive brainstorming. The amazing results we've achieved would be impossible without you!
+- You have contributed to our project in so many ways. We couldn't have succeeded without the outstanding efforts and time you have invested into our endeavor. Thank you.
+- I'm really happy to be a part of such a wonderful team! I want to thank each and every one of you for being so cool, professional, and always ready to help.
+- I'm really thankful for the opportunity to work side by side with such remarkable people. The things that we do together are simply incredible! I'm proud to be a part of our team!
+- Thank you for sharing your expertise and driving our project forward.
+</pre>
+<pre>
+Thanks, person
+- Thank you so much for your helpful tips and always being there for me. You are a star!
+- You really inspire me to be a better version of myself. I couldn't have come so far without your help. Because of you, now I know what it means to be a «team player». Thanks a bunch!
+- I'm grateful to the universe for giving me such an understanding friend and reliable colleague. We can do anything together! Thank you for being so awesome!
+- Working with you every day is why I love my job! You rock! 
+</pre>
+<pre>
+Thanks, customer
+- Thank you for your original ideas, professionalism, and active participation in the development of our project.
+- Our team is truly grateful for the valuable experience we have gained while working on such interesting tasks.
+- It has been a real pleasure for our team to work with you on this project.
+- Our common project added colour to our professional lives and taught us to think creatively.
+It's really nice to work with people who have a clear vision of their goals and complete trust in us.
 </pre>
 <pre>
 Links
