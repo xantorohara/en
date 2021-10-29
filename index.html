@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>En</title>
+    <meta name="description" content="English phrases">
+    <meta name="keywords" content="English,learn,polite,meeting">
+    <meta name="author" content="Xantorohara">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, Arial;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            column-count: auto;
+            column-width: 250px;
+            column-fill: auto;
+            /*column-fill: balance;*/
+            /*column-rule: solid #CCC 1px;*/
+            column-gap: 0;
+            padding: 5px;
+            box-sizing: border-box;
+            background-color: #E7E7E7;
+        }
+
+        #filterInput {
+            width: 100%;
+            padding: 5px;
+            border: solid #CCC 1px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        pre {
+            /*break-inside: avoid;*/
+            font-size: small;
+            white-space: pre-wrap;
+            margin: 10px 5px;
+            border-collapse: separate;
+            padding: 0 5px 5px 5px;
+        }
+
+        #filterInput, pre {
+            border: solid #E7E7E7 1px;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 1px 1px 5px 0 #C3C3C3;
+        }
+
+        pre:first-line {
+            font-size: larger;
+            color: royalblue;
+            line-height: 2em;
+        }
+
+        pre.hidden {
+            display: none;
+        }
+
+        pre span.matched {
+            background-color: #FFE700;
+        }
+    </style>
+
+    <script>
+      function filter(value) {
+        const regexps = value.toLowerCase().split(' ')
+          .filter((word) => !!word)
+          .filter((word) => word.length > 1)
+          .map((word) => {
+            const expr = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            return new RegExp(`(${expr})`, 'gi');
+          });
+
+        for (const e of document.getElementsByTagName('pre')) {
+          e.textContent = e.textContent
+            .replaceAll('<span class="matched">', '')
+            .replaceAll('</span>', '')
+
+          const text = e.textContent.toLowerCase();
+          const show = !regexps.length || regexps.every(word => word.test(text));
+          e.classList.toggle('hidden', !show);
+          if (show) {
+            let html = e.innerHTML;
+            for (const word of regexps) {
+              html = html.replaceAll(word, '<span class="matched">$1</span>');
+            }
+            e.innerHTML = html;
+          }
+        }
+      }
+
+      function escape(e) {
+        if (e.code === 'Escape') {
+          document.getElementById('filterInput').focus();
+          document.getElementById('filterInput').value = '';
+          filter('');
+        }
+      }
+    </script>
+</head>
+<body onkeydown="escape(event)">
+<div style="padding: 5px;">
+    <input id="filterInput" oninput="filter(this.value)" placeholder="Enter filter phrase...">
+</div>
+
+<pre>
+Meeting: start
+- Do we have [Name] on the call?
+- Are we good to go?
+- Ok, let's get started.
+- Ok, let's kick off.
+</pre>
+<pre>
+Meeting: share screen
+- Let me share my screen with you.
+- I'm going to share my screen.
+- I'm going to switch over to the Chrome window now.
+- I'm going to pull up my presentation.
+- Can everybody see the first slide?
+</pre>
+<pre>
+Meeting: problems
+- Sorry, I'm having some technical difficulties here.
+- Our internet connection seems to be slow. Please bear with me while the page is loading - it might take a few minutes.
+- I think there is a problem with the internet connection at our end.
+- Hold on a minute.
+- Hang on ... Is that better?
+- Just a second, I'm going to turn the volume up.
+- We are looking into it.
+- We are trying to fix it.
+- Let me just refresh the page and try again.
+
+- Did we loose [Name] again?
+- Are you there, [Name]?
+- Sorry guys, I got cut off.
+- Yes, it is fine now.
+- Yes, you are back again now.
+
+- The screen is blank/frozen.
+- You are breaking up a bit.
+- There's a bit of an echo on the line.
+- Sorry, I was on mute.
+</pre>
+<pre>
+Meeting: interrupt
+- Can I cut in here for a second?
+- If I can just jump in here for a moment ...
+- Just want to interject here ...
+- Sorry to interrupt.
+- Sorry for interruption.
+- Sorry, go ahead.
+- Where was I?
+- Let me start over again?
+- Sorry, I'm late
+
+</pre>
+
+<pre>
+Meeting: other
+- This is [Name].
+- It is [Name] here.
+- Sorry, I have to jump to another call.
+</pre>
+
+<pre>
+Polite: would, could, may
+- Could you call me later please?
+- Could you give me more information please?
+- Would you please help me with the report?
+- Would you <b>be so kind as</b> to tell me his email?
+- Could you be so kind as to send me the report before the end of the day?
+- May I have some water, please.
+</pre>
+<pre>
+Polite: bumper phrases
+- I’m afraid ...
+- Unfortunately, ...
+- I am not sure ...
+- With all respect, ...
+- I’m sorry but ...
+- With all respect, I have to decline your offer.
+
+- a little, - a bit, - a little bit, - a few, - slightly, - one or two
+
+- The price is a little high for us.
+- We are having one or two problems with the new product.
+- We might run slightly over the budget.
+</pre>
+<pre>
+Polite: negative = not+positive
+- bad, terrible = not good
+- ugly = not nice
+- awful = not pleasant
+
+- This idea is not good for business.
+</pre>
+<pre>
+Polite: use past continuous
+- I was thinking we need to hire more employees.
+- We were aiming to finish this project by the end of the month.
+- I was hoping we could sign the contract today.
+</pre>
+<pre>
+Polite: passive phrases
+- It was understood that ...
+- It was agreed that ...
+- It was expected that ...
+- The most important things are not discussed without our manager.
+- We were not invited to the meeting the day before yesterday.
+</pre>
+<pre>
+Links
+- <a href="https://dictionary.cambridge.org/dictionary/english/conclusion" target="_blank">Cambridge Dictionary</a>
+</pre>
+<!--
+https://klever.blog/category/english/
+ -->
+</body>
+</html>
